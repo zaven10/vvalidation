@@ -1,3 +1,12 @@
+![npm](https://img.shields.io/npm/v/vvalidation)
+![NPM](https://img.shields.io/npm/l/vvalidation)
+![GitHub issues](https://img.shields.io/github/issues/zaven10/vvalidation)
+![GitHub top language](https://img.shields.io/github/languages/top/zaven10/vvalidation)
+![npms.io (final)](https://img.shields.io/npms-io/popularity-score/vvalidation)
+
+![GitHub forks](https://img.shields.io/github/forks/zaven10/vvalidation?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/zaven10/vvalidation?style=social)
+
 # vvalidation
 Allows use of decorator based validation. Internally uses [vuelidate 2](https://vuelidate-next.netlify.app/) to perform validation.
 
