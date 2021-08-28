@@ -1,15 +1,26 @@
 {
   "name": "vvalidation",
-  "version": "0.0.2-alpha",
-  "description": "Validation for vue 3 with vuelidate 2",
+  "version": "0.0.3-alpha",
+  "description": "Decorator-based property validation for classes (vue3 / vuelidate 2).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaven10/vvalidation.git"
+  },
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "start": "npm run build && node tests/test.js",
     "build": "npm run clean && npx tsc",
     "clean": "shx rm -rf dist"
   },
+  "tags": [
+    "vvalidation",
+    "validator",
+    "validation",
+    "decorators",
+    "typescript"
+  ],
   "keywords": [
     "vvalidation",
     "vuelidate 2 validation",
