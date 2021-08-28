@@ -43,7 +43,7 @@ export {
   requiredIfDecorator as RequiredIf,
   requiredUnlessDecorator as RequiredUnless,
   isAlphaDecorator as IsAlpha,
-  isAlphaNumericDecorator as IsAlphaNnumeric,
+  isAlphaNumericDecorator as IsAlphaNumeric,
   isNumericDecorator as IsNumeric,
   isIntegerDecorator as IsInteger,
   isDecimalDecorator as IsDecimal,

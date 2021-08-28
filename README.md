@@ -128,7 +128,7 @@ export default defineComponent({
 | `@IsInteger()`                                  | Accepts positive and negative integers. |
 | **String validation decorators**                | |
 | `@IsAlpha()`                                    | Accepts only alphabet characters. |
-| `@IsAlphaNnumeric()`                            | Accepts only alphanumerics. |
+| `@IsAlphaNumeric()`                            | Accepts only alphanumerics. |
 | `@IsNumeric()`                                  | Accepts only numerics. String numbers are also numeric. |
 | `@IsDecimal()`                                  | Accepts positive and negative decimal numbers. |
 | `@IsEmail()`                                    | Accepts valid email addresses. Keep in mind you still have to carefully verify it on your server, as it is impossible to tell if the address is real without sending verification email.|
