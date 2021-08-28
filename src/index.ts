@@ -2,7 +2,7 @@ import { andDecorator } from './decorators/and.decorator'
 import { betweenDecorator } from './decorators/between.decorator'
 import { defaultValueDecorator } from './decorators/defaultValue.decorator'
 import { isAlphaDecorator } from './decorators/isAlpha.decorator'
-import { isAlphaNumDecorator } from './decorators/isAlphaNum.decorator'
+import { isAlphaNumericDecorator } from './decorators/isAlphaNumeric.decorator'
 import { isDecimalDecorator } from './decorators/isDecimal.decorator'
 import { isEmailDecorator } from './decorators/isEmail.decorator'
 import { isIntegerDecorator } from './decorators/isInteger.decorator'
@@ -32,8 +32,6 @@ export {
   IBaseValidation,
   BaseValidation,
   useValidationDecorator as UseValidation,
-  requiredIfDecorator as RequiredIf,
-  requiredUnlessDecorator as RequiredUnless,
   defaultValueDecorator as DefaultValue,
   minLengthDecorator as MinLength,
   maxLengthDecorator as MaxLength,
@@ -42,14 +40,16 @@ export {
   betweenDecorator as Between,
   isOptionalDecorator as IsOptional,
   isRequiredDecorator as IsRequired,
+  requiredIfDecorator as RequiredIf,
+  requiredUnlessDecorator as RequiredUnless,
   isAlphaDecorator as IsAlpha,
-  isAlphaNumDecorator as IsAlphaNum,
+  isAlphaNumericDecorator as IsAlphaNnumeric,
   isNumericDecorator as IsNumeric,
   isIntegerDecorator as IsInteger,
   isDecimalDecorator as IsDecimal,
   isEmailDecorator as IsEmail,
-  isIpAddressDecorator as IsIpAddress,
-  isMacAddressDecorator as IsMacAddress,
+  isIpAddressDecorator as IsIPAddress,
+  isMacAddressDecorator as IsMACAddress,
   isUrlDecorator as IsUrl,
   sameAsDecorator as SameAs,
   orDecorator as Or,

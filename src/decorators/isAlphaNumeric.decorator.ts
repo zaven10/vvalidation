@@ -5,7 +5,7 @@ import { Validators } from '../enums'
 import { IOptions } from '../interfaces'
 import { voidFunction } from '../helpers'
 
-export function isAlphaNumDecorator(options?: IOptions): any {
+export function isAlphaNumericDecorator(options?: IOptions): any {
   return async function (
     target: any,
     propertyKey: string,
