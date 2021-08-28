@@ -1,8 +1,9 @@
 {
   "name": "vvalidation",
-  "version": "1.0.0-20210828",
+  "version": "0.0.1-20210828",
   "description": "Validation for vue 3 with vuelidate 2",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "start": "npm run build && node tests/test.js",
