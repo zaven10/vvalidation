@@ -1,6 +1,6 @@
 {
   "name": "vvalidation",
-  "version": "0.0.5-alpha",
+  "version": "0.1.0",
   "description": "Decorator-based property validation for classes (vue3 / vuelidate 2).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

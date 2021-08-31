@@ -3,6 +3,8 @@
 ![GitHub issues](https://img.shields.io/github/issues/zaven10/vvalidation)
 ![GitHub top language](https://img.shields.io/github/languages/top/zaven10/vvalidation)
 ![npms.io (final)](https://img.shields.io/npms-io/popularity-score/vvalidation)
+![npm](https://img.shields.io/npm/dw/vvalidation)
+![GitHub repo size](https://img.shields.io/github/repo-size/zaven10/vvalidation)
 
 ![GitHub forks](https://img.shields.io/github/forks/zaven10/vvalidation?style=social)
 ![GitHub Repo stars](https://img.shields.io/github/stars/zaven10/vvalidation?style=social)
