@@ -21,6 +21,7 @@ import { orDecorator } from './decorators/or.decorator'
 import { requiredIfDecorator } from './decorators/requiredIf.decorator'
 import { requiredUnlessDecorator } from './decorators/requiredUnless.decorator'
 import { sameAsDecorator } from './decorators/sameAs.decorator'
+import { customValidatorDecorator } from './decorators/customValidator.decorator'
 import { useValidationDecorator } from './decorators/useValidation.decorator'
 
 import { IBaseValidation, IValidationData } from './interfaces'
@@ -55,4 +56,5 @@ export {
   orDecorator as Or,
   andDecorator as And,
   notDecorator as Not,
+  customValidatorDecorator as CustomValidator,
 }

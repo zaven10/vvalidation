@@ -1,16 +1,19 @@
 import { ValidationRule } from '@vuelidate/core'
-import { helpers, not } from '@vuelidate/validators'
+import { not } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { IOptions } from '../interfaces'
+
 import { TDecorator } from '../types'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function notDecorator(validator: TDecorator, options?: IOptions): any {
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
@@ -18,11 +21,9 @@ export function notDecorator(validator: TDecorator, options?: IOptions): any {
       validator(target, propertyKey, true),
     )
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

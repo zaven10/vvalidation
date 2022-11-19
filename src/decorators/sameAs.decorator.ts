@@ -1,9 +1,11 @@
 import { ValidationRule, ValidationRuleWithParams } from '@vuelidate/core'
-import { helpers, sameAs } from '@vuelidate/validators'
+import { sameAs } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { IOptions } from '../interfaces'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function sameAsDecorator<E = unknown>(
   equalTo: E,
@@ -12,7 +14,7 @@ export function sameAsDecorator<E = unknown>(
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
@@ -21,11 +23,9 @@ export function sameAsDecorator<E = unknown>(
       otherName: string
     }> = sameAs(equalTo)
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

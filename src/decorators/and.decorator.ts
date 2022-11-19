@@ -1,11 +1,13 @@
-import { helpers, and } from '@vuelidate/validators'
+import { and } from '@vuelidate/validators'
 import { ValidationRule, ValidationRuleWithoutParams } from '@vuelidate/core'
 
 import { IOptionsWithAsync } from '../interfaces'
 
 import { Validators } from '../enums'
+
 import { TDecorator } from '../types'
-import { parseValidator, voidFunction } from '../helpers'
+
+import { parseMessage, parseValidator, voidFunction } from '../helpers'
 
 export function andDecorator(
   validators: Array<TDecorator>,
@@ -14,7 +16,7 @@ export function andDecorator(
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
@@ -23,11 +25,9 @@ export function andDecorator(
     )
     const validationRule: ValidationRuleWithoutParams = and(...validatorsData)
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

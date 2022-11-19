@@ -1,27 +1,28 @@
 import { ValidationRule, ValidationRuleWithParams } from '@vuelidate/core'
-import { helpers, minLength } from '@vuelidate/validators'
+import { minLength } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { TMin } from '../types'
+
 import { IOptions } from '../interfaces'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function minLengthDecorator(length: TMin, options?: IOptions): any {
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
-    const validationRule: ValidationRuleWithParams<{ length: number }> =
+    const validationRule: ValidationRuleWithParams<{ min: number }> =
       minLength(length)
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

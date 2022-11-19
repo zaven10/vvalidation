@@ -1,10 +1,13 @@
 import { ValidationRule, ValidationRuleWithoutParams } from '@vuelidate/core'
-import { helpers, requiredUnless } from '@vuelidate/validators'
+import { requiredUnless } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { TRequiredIfOrUnless } from '../types'
+
 import { IOptions } from '../interfaces'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function requiredUnlessDecorator(
   prop: TRequiredIfOrUnless,
@@ -13,17 +16,15 @@ export function requiredUnlessDecorator(
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
     const validationRule: ValidationRuleWithoutParams = requiredUnless(prop)
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

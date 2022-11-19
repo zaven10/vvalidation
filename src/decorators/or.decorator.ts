@@ -1,10 +1,13 @@
 import { ValidationRule, ValidationRuleWithoutParams } from '@vuelidate/core'
-import { helpers, or } from '@vuelidate/validators'
+import { or } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { TDecorator } from '../types'
+
 import { IOptionsWithAsync } from '../interfaces'
-import { parseValidator, voidFunction } from '../helpers'
+
+import { parseMessage, parseValidator, voidFunction } from '../helpers'
 
 export function orDecorator(
   validators: Array<TDecorator>,
@@ -13,7 +16,7 @@ export function orDecorator(
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
@@ -22,11 +25,9 @@ export function orDecorator(
     )
     const validationRule: ValidationRuleWithoutParams = or(...validatorsData)
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

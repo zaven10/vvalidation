@@ -1,6 +1,6 @@
 {
   "name": "vvalidation",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Decorator-based property validation for classes (vue3 / vuelidate 2).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,13 +35,13 @@
   "author": "Zaven",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^2.3.2",
-    "typescript": "^4.3.5",
-    "shx": "^0.2.2"
+    "prettier": "^2.7.1",
+    "shx": "^0.3.4",
+    "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@vuelidate/core": "^2.0.0-alpha.24",
-    "@vuelidate/validators": "^2.0.0-alpha.21",
-    "vue": "^3.2.6"
+    "@vuelidate/core": "^2.0.0",
+    "@vuelidate/validators": "^2.0.0",
+    "vue": "^3.2.45"
   }
 }

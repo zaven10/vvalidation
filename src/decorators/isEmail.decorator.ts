@@ -1,23 +1,23 @@
 import { ValidationRule } from '@vuelidate/core'
-import { helpers, email } from '@vuelidate/validators'
+import { email } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { IOptions } from '../interfaces'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function isEmailDecorator(options?: IOptions): any {
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, email)
-      : email
+    const rule: ValidationRule = parseMessage(email, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

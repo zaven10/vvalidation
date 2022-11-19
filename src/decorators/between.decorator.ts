@@ -1,10 +1,13 @@
-import { helpers, between } from '@vuelidate/validators'
+import { between } from '@vuelidate/validators'
 import { ValidationRule, ValidationRuleWithParams } from '@vuelidate/core'
 
 import { Validators } from '../enums'
+
 import { TMax, TMin } from '../types'
+
 import { IOptions } from '../interfaces'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function betweenDecorator(
   min: TMin,
@@ -14,7 +17,7 @@ export function betweenDecorator(
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
@@ -23,11 +26,9 @@ export function betweenDecorator(
       max: number
     }> = between(min, max)
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, validationRule)
-      : validationRule
+    const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

@@ -1,5 +1,4 @@
-import { ValidationRule } from '@vuelidate/core'
-import { alphaNum } from '@vuelidate/validators'
+import { ValidationRule, ValidatorFn } from '@vuelidate/core'
 
 import { Validators } from '../enums'
 
@@ -7,7 +6,10 @@ import { IOptions } from '../interfaces'
 
 import { parseMessage, voidFunction } from '../helpers'
 
-export function isAlphaNumericDecorator(options?: IOptions): any {
+export function customValidatorDecorator(
+  validator: ValidatorFn,
+  options?: IOptions,
+): any {
   return async function (
     target: any,
     propertyKey: string,
@@ -15,13 +17,13 @@ export function isAlphaNumericDecorator(options?: IOptions): any {
   ): Promise<any> {
     await voidFunction()
 
-    const rule: ValidationRule = parseMessage(alphaNum, options)
+    const rule: ValidationRule = parseMessage(validator, options)
 
     if (isEmbedded) {
       return rule
     }
 
-    const ruleName: string = options?.name || Validators.ALPHA_NUM
+    const ruleName: string = options?.name || Validators.CUSTOM
 
     target.addField(propertyKey)
     target.addRule(propertyKey, ruleName, rule)

@@ -1,4 +1,6 @@
+import { TMessage } from '../types'
+
 export interface IOptions {
   name?: string
-  message?: string
+  message?: TMessage
 }

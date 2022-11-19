@@ -1,23 +1,23 @@
 import { ValidationRule } from '@vuelidate/core'
-import { helpers, integer } from '@vuelidate/validators'
+import { integer } from '@vuelidate/validators'
 
 import { Validators } from '../enums'
+
 import { IOptions } from '../interfaces'
-import { voidFunction } from '../helpers'
+
+import { parseMessage, voidFunction } from '../helpers'
 
 export function isIntegerDecorator(options?: IOptions): any {
   return async function (
     target: any,
     propertyKey: string,
-    isEmbeded: boolean = false,
+    isEmbedded: boolean = false,
   ): Promise<any> {
     await voidFunction()
 
-    const rule: ValidationRule = options?.message
-      ? helpers.withMessage(options.message, integer)
-      : integer
+    const rule: ValidationRule = parseMessage(integer, options)
 
-    if (isEmbeded) {
+    if (isEmbedded) {
       return rule
     }
 

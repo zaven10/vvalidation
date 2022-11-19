@@ -1,5 +1,5 @@
-export interface IOptionsWithAsync {
-  name?: string
-  message?: string
+import { IOptions } from './IOptions.interface'
+
+export interface IOptionsWithAsync extends IOptions {
   withAsync?: boolean
 }

@@ -151,3 +151,4 @@ export default defineComponent({
 | `@Between()`                                    | Checks if a number or Date is in specified bounds. min and max are both inclusive. |
 | `@MinValue()`                                   | Requires entry to have a specified minimum numeric value or Date. |
 | `@MaxValue()`                                   | Requires entry to have a specified maximum numeric value or Date. |
+| `@CustomValidator()`                            | You can easily write custom validators and combine them with builtin ones, as those are just a simple predicate functions. |

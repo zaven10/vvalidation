@@ -2,6 +2,7 @@ import { ValidationRule } from '@vuelidate/core'
 import { helpers } from '@vuelidate/validators'
 
 import { TDecorator } from '../types'
+
 import { IOptionsWithAsync } from '../interfaces'
 
 export function parseValidatorHelper(

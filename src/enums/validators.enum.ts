@@ -21,4 +21,5 @@ export enum Validators {
   OR = 'or',
   AND = 'and',
   NOT = 'not',
+  CUSTOM = 'custom',
 }
