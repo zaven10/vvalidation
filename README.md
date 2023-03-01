@@ -90,10 +90,9 @@ export default defineComponent({
   setup() {
     const userValidation: IBaseValidation = new UserValidation();
 
-    const { rules, state }: IValidationData = userValidation.getData();
-    const reactiveState = reactive(state);
+    const { rules, state }: IValidationData = await userValidation.getData();
 
-    const v$ = useVuelidate(rules, reactiveState);
+    const v$ = useVuelidate(await rules, await state);
 
     return { v$ };
   },
@@ -134,7 +133,8 @@ export default defineComponent({
 | `@Not()`                                        | Passes when provided validator would not pass, fails otherwise. Can be chained with other validators. |
 | `@Or()`                                         | Passes when at least one of the provided validators returns `true`. Validators can return more data, when using the object response. Can also accept a mix of sync and async validators. |
 | `@And()`                                        | Passes when all of provided validators return `true`. Can also accept a mix of sync and async validators. |
-| `@SameAs()`                                     | Checks for equality with a given property. Accepts a ref, a direct reference to a data property, or a raw value to compare to it directly. |
+| `@SameAs()`                                     | Checks for equality with a given property. Accepts a ref, a direct reference to a data property, or a raw value to compare to it directly. `@SameAs(equalTo, key?, options?)` have one required (`equalTo`) and two optional parameters (`key, options`)
+if you want to linked another state property you can combine first 2 parameters like as `@SameAs(null, 'keyToAnotherPropertyInState')` |
 | **Type validation decorators**                  | |
 | `@IsInteger()`                                  | Accepts positive and negative integers. |
 | **String validation decorators**                | |

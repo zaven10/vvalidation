@@ -1,8 +1,10 @@
+import { reactive } from 'vue'
+
 import { IUseValidation, IValidationData } from '../interfaces'
 
 export function useValidation(): IUseValidation {
   const rules: any = {}
-  const state: any = {}
+  const state: any = reactive({})
 
   const addField = (property: string): void => {
     const value: any = state[property]
