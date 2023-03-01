@@ -25,7 +25,7 @@ export function maxValueDecorator(
 
     const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

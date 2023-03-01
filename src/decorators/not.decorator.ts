@@ -23,7 +23,7 @@ export function notDecorator(validator: TDecorator, options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

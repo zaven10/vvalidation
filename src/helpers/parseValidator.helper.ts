@@ -10,8 +10,12 @@ export function parseValidatorHelper(
   propertyKey: string,
   options?: IOptionsWithAsync,
 ): any {
-  return (validator: TDecorator): ValidationRule => {
-    const calledValidator: ValidationRule = validator(target, propertyKey, true)
+  return async (validator: TDecorator): Promise<ValidationRule> => {
+    const calledValidator: ValidationRule = await validator(
+      target,
+      propertyKey,
+      true,
+    )
 
     return options?.withAsync
       ? helpers.withAsync(calledValidator)

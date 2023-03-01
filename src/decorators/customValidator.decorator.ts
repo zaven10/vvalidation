@@ -19,7 +19,7 @@ export function customValidatorDecorator(
 
     const rule: ValidationRule = parseMessage(validator, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

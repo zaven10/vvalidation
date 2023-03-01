@@ -10,7 +10,7 @@ import { IOptionsWithAsync } from '../interfaces'
 import { parseMessage, parseValidator, voidFunction } from '../helpers'
 
 export function orDecorator(
-  validators: Array<TDecorator>,
+  validators: TDecorator[],
   options?: IOptionsWithAsync,
 ): any {
   return async function (
@@ -27,7 +27,7 @@ export function orDecorator(
 
     const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

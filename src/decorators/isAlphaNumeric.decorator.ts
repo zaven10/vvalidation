@@ -17,7 +17,7 @@ export function isAlphaNumericDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(alphaNum, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

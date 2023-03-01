@@ -17,7 +17,7 @@ export function isEmailDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(email, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

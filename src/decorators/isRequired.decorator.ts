@@ -17,7 +17,7 @@ export function isRequiredDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(required, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

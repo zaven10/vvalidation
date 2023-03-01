@@ -17,7 +17,7 @@ export function isUrlDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(url, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

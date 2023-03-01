@@ -17,7 +17,7 @@ export function isNumericDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(numeric, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

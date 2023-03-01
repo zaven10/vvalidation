@@ -17,7 +17,7 @@ export function isAlphaDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(alpha, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

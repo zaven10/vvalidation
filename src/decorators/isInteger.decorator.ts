@@ -17,7 +17,7 @@ export function isIntegerDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(integer, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

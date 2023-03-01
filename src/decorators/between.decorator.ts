@@ -28,7 +28,7 @@ export function betweenDecorator(
 
     const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

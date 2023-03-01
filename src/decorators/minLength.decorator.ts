@@ -9,7 +9,7 @@ import { IOptions } from '../interfaces'
 
 import { parseMessage, voidFunction } from '../helpers'
 
-export function minLengthDecorator(length: TMin, options?: IOptions): any {
+export function minLengthDecorator(min: TMin, options?: IOptions): any {
   return async function (
     target: any,
     propertyKey: string,
@@ -18,11 +18,11 @@ export function minLengthDecorator(length: TMin, options?: IOptions): any {
     await voidFunction()
 
     const validationRule: ValidationRuleWithParams<{ min: number }> =
-      minLength(length)
+      minLength(min)
 
     const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

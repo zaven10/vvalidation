@@ -10,7 +10,7 @@ import { TDecorator } from '../types'
 import { parseMessage, parseValidator, voidFunction } from '../helpers'
 
 export function andDecorator(
-  validators: Array<TDecorator>,
+  validators: TDecorator[],
   options?: IOptionsWithAsync,
 ): any {
   return async function (
@@ -20,14 +20,15 @@ export function andDecorator(
   ): Promise<any> {
     await voidFunction()
 
-    const validatorsData: ValidationRule[] = validators.map(
-      parseValidator(target, propertyKey, options),
+    const validatorsData: ValidationRule[] = await Promise.all(
+      validators.map(parseValidator(target, propertyKey, options)),
     )
+
     const validationRule: ValidationRuleWithoutParams = and(...validatorsData)
 
     const rule: ValidationRule = parseMessage(validationRule, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 

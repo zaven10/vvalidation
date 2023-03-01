@@ -17,7 +17,7 @@ export function isDecimalDecorator(options?: IOptions): any {
 
     const rule: ValidationRule = parseMessage(decimal, options)
 
-    if (isEmbedded) {
+    if (await isEmbedded) {
       return rule
     }
 
